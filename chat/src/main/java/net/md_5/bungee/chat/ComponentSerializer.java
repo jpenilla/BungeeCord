@@ -8,6 +8,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
+import java.awt.Color;
 import java.lang.reflect.Type;
 import java.util.Set;
 import net.md_5.bungee.api.chat.BaseComponent;
@@ -39,6 +40,7 @@ public class ComponentSerializer implements JsonDeserializer<BaseComponent>
             registerTypeAdapter( Text.class, new TextSerializer() ).
             registerTypeAdapter( Item.class, new ItemSerializer() ).
             registerTypeAdapter( ItemTag.class, new ItemTag.Serializer() ).
+            registerTypeAdapter( Color.class, new ColorSerializer() ).
             create();
 
     public static final ThreadLocal<Set<BaseComponent>> serializedComponents = new ThreadLocal<Set<BaseComponent>>();
